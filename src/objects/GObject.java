@@ -21,22 +21,26 @@ public abstract class GObject {
 		this.width = width;
 		this.height = height;
 	}
+	
+	public boolean getSelected() {
+		return this.selected;
+	}
 
 	public boolean pointerHit(int pointerX, int pointerY) {
-		// TODO: Implement this method.
-		return false;
+		return pointerX >= x && pointerX <= x+width  && pointerY >= y && pointerY <= y+height;
 	}
 	
 	public void selected() {
-		// TODO: Implement this method.
+		selected = true;
 	}
 	
 	public void deselected() {
-		// TODO: Implement this method.
+		selected = false;
 	}
 	
 	public void move(int dX, int dY) {
-		// TODO: Implement this method.
+		this.x += dX;
+		this.y += dY;
 	}
 
 	public final void paint(Graphics g) {
